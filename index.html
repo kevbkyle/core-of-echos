@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Core of Echos — Official Book Site</title>
+  <meta name="description" content="Official website for Core of Echos. Read about the story, preview, and buy on Amazon." />
+  <style>
+    :root{
+      --bg:#0b0f14; --panel:#101824; --text:#e8eef7; --muted:#a7b4c7;
+      --accent:#6ee7ff; --accent2:#9b7bff; --border:#223047;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 30% -10%, rgba(110,231,255,.18), transparent),
+                  radial-gradient(900px 500px at 90% 10%, rgba(155,123,255,.14), transparent),
+                  var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1050px; margin:0 auto; padding:22px}
+    header{
+      border:1px solid var(--border); background:rgba(16,24,36,.75);
+      backdrop-filter: blur(8px);
+      border-radius:18px; padding:18px 18px 12px 18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+    .top{
+      display:flex; gap:16px; align-items:center; justify-content:space-between; flex-wrap:wrap;
+    }
+    .brand h1{margin:0; font-size:26px; letter-spacing:.4px}
+    .brand p{margin:6px 0 0; color:var(--muted); font-size:14px}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--border);
+      background: linear-gradient(135deg, rgba(110,231,255,.12), rgba(155,123,255,.10));
+      color:var(--text);
+      font-weight:600;
+    }
+    .btn.primary{
+      border-color: rgba(110,231,255,.45);
+      box-shadow: 0 0 0 4px rgba(110,231,255,.08);
+    }
+    nav{
+      margin-top:14px;
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .tab{
+      cursor:pointer;
+      padding:10px 12px; border-radius:12px;
+      border:1px solid var(--border); color:var(--muted);
+      background: rgba(16,24,36,.55);
+      user-select:none;
+    }
+    .tab.active{
+      color:var(--text);
+      border-color: rgba(110,231,255,.35);
+      background: rgba(16,24,36,.88);
+    }
+    main{margin-top:18px}
+    .panel{
+      border:1px solid var(--border);
+      background: rgba(16,24,36,.72);
+      backdrop-filter: blur(8px);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+    }
+    @media (max-width: 820px){ .grid{grid-template-columns:1fr} }
+    .card{
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:14px;
+      background: rgba(11,15,20,.35);
+    }
+    h2{margin:0 0 10px}
+    h3{margin:0 0 8px; font-size:16px}
+    p{margin:10px 0; color:var(--text); line-height:1.55}
+    .muted{color:var(--muted)}
+    .badgeRow{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .badge{
+      font-size:12px; color:var(--muted);
+      border:1px solid var(--border);
+      padding:6px 10px; border-radius:999px;
+      background: rgba(16,24,36,.45);
+    }
+    .quote{
+      padding:12px 14px; border-left:3px solid rgba(110,231,255,.55);
+      background: rgba(110,231,255,.06); border-radius:12px;
+    }
+    label{display:block; font-weight:600; margin:10px 0 6px}
+    input, textarea{
+      width:100%; padding:12px;
+      border-radius:12px; border:1px solid var(--border);
+      background: rgba(11,15,20,.45);
+      color: var(--text);
+      outline:none;
+    }
+    textarea{min-height:130px; resize:vertical}
+    .row{display:flex; gap:10px}
+    @media (max-width: 700px){ .row{flex-direction:column} }
+    footer{
+      margin-top:18px; text-align:center; color:var(--muted);
+      font-size:12px; opacity:.9;
+    }
+    .small{font-size:12px}
+    .danger{color:#ffb4b4}
+    .success{color:#b9ffdb}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="top">
+        <div class="brand">
+          <h1>Core of Echos</h1>
+          <p>Official book site • Sci-Fi / AI / Cyberpunk energy</p>
+        </div>
+        <div class="ctaRow">
+          <a class="btn primary" href="https://a.co/d/bcb20RW" target="_blank" rel="noopener">Buy on Amazon</a>
+          <a class="btn" href="#fan" onclick="openTab('fan')">Message the Author</a>
+        </div>
+      </div>
+
+      <nav aria-label="Site tabs">
+        <div class="tab active" data-tab="home" onclick="openTab('home')">Home</div>
+        <div class="tab" data-tab="about" onclick="openTab('about')">About</div>
+        <div class="tab" data-tab="preview" onclick="openTab('preview')">Preview</div>
+        <div class="tab" data-tab="fan" onclick="openTab('fan')">Fan Hub</div>
+        <div class="tab" data-tab="buy" onclick="openTab('buy')">Buy</div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="panel" id="tab-home">
+        <div class="grid">
+          <div class="card">
+            <h2>Welcome to <span style="color:var(--accent)">Core of Echos</span></h2>
+            <p class="muted">
+              A high-stakes sci-fi story with AI, rebellion energy, and reality-bending tech.
+              This is the official landing page for readers, updates, and purchase links.
+            </p>
+
+            <div class="badgeRow">
+              <span class="badge">Sci-Fi</span>
+              <span class="badge">AI</span>
+              <span class="badge">Cyberpunk Vibes</span>
+              <span class="badge">Indie Release</span>
+              <span class="badge">KDP</span>
+            </div>
+
+            <p class="quote">
+              “When the world turns into code, memory becomes a weapon.”
+            </p>
+
+            <p class="muted small">
+              Tip: Update the quote + description to match your back-cover blurb anytime.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Quick Links</h3>
+            <p><a href="https://a.co/d/bcb20RW" target="_blank" rel="noopener">→ Buy Core of Echos on Amazon</a></p>
+            <p><a href="#fan" onclick="openTab('fan')">→ Send a message / fan mail</a></p>
+            <p><a href="#tab-preview" onclick="openTab('preview')">→ Read the preview</a></p>
+
+            <hr style="border:0;border-top:1px solid var(--border); margin:14px 0" />
+
+            <h3>Author Updates</h3>
+            <p class="muted">Add your socials here (X, Instagram, TikTok, Twitch, etc.).</p>
+            <p class="muted small">Example: <strong>@kevbkyle</strong></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section class="panel" id="tab-about" style="display:none">
+        <h2>About the Book</h2>
+        <p class="muted">
+          Paste your official blurb here. Keep it punchy: 120–180 words works well for websites.
+        </p>
+        <div class="card">
+          <h3>Short Blurb (placeholder)</h3>
+          <p>
+            When a live-streaming night turns into a raid, Rip is pulled into a hidden war over an AI secret
+            that can rewrite minds and reality. Hunted by forces that control the city’s infrastructure,
+            Rip must reach the truth before the Core rewrites everything he loves.
+          </p>
+          <p class="muted small">
+            Replace this text with your finalized Amazon blurb (or a slightly longer version).
+          </p>
+        </div>
+
+        <div class="grid" style="margin-top:14px">
+          <div class="card">
+            <h3>Genre & Themes</h3>
+            <p class="muted">AI • Memory • Rebellion • Reality distortion • Futuristic city</p>
+          </div>
+          <div class="card">
+            <h3>Content Notes (optional)</h3>
+            <p class="muted">Add any warnings / tone notes you want readers to know.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PREVIEW -->
+      <section class="panel" id="tab-preview" style="display:none">
+        <h2>Preview</h2>
+        <p class="muted">Drop in your opening page / teaser (300–800 words is plenty).</p>
+        <div class="card">
+          <h3>Teaser (placeholder)</h3>
+          <p class="muted">
+            Add your excerpt here. Keep it short and end on a hook. You can also add an image of the book cover later.
+          </p>
+        </div>
+        <p class="muted small">Tip: Don’t paste too many pages if you’re worried about spoilers.</p>
+      </section>
+
+      <!-- FAN HUB -->
+      <section class="panel" id="tab-fan" style="display:none">
+        <h2 id="fan">Fan Hub</h2>
+        <p class="muted">
+          Send a message to the author. This form uses <strong>FormSubmit</strong> so you can receive emails
+          without needing a server.
+        </p>
+
+        <div class="card">
+          <h3>Message Me</h3>
+
+          <!-- IMPORTANT:
+               Replace YOUR_EMAIL_HERE with your email and then follow the setup steps below.
+               Example: action="https://formsubmit.co/youremail@gmail.com"
+          -->
+          <form id="contactForm" action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST">
+            <!-- FormSubmit options -->
+            <input type="hidden" name="_subject" value="Core of Echos — New fan message" />
+            <input type="hidden" name="_captcha" value="true" />
+            <input type="hidden" name="_template" value="table" />
+
+            <div class="row">
+              <div style="flex:1">
+                <label for="name">Name</label>
+                <input id="name" name="name" placeholder="Your name" required />
+              </div>
+              <div style="flex:1">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@email.com" required />
+              </div>
+            </div>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+            <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px">
+              <button class="btn primary" type="submit">Send Message</button>
+              <button class="btn" type="button" onclick="openTab('buy')">Buy Link</button>
+            </div>
+
+            <p class="muted small">
+              Privacy note: This sends directly to your email once configured.
+              You can disable captcha if you want fewer steps, but it helps prevent spam.
+            </p>
+          </form>
+
+          <p class="muted small danger">
+            Don’t forget to replace <strong>YOUR_EMAIL_HERE</strong> in the form action.
+          </p>
+        </div>
+      </section>
+
+      <!-- BUY -->
+      <section class="panel" id="tab-buy" style="display:none">
+        <h2>Buy Core of Echos</h2>
+        <div class="card">
+          <h3>Amazon</h3>
+          <p class="muted">Click below to purchase on Amazon:</p>
+          <p>
+            <a class="btn primary" href="https://a.co/d/bcb20RW" target="_blank" rel="noopener">Buy on Amazon</a>
+          </p>
+          <p class="muted small">
+            You can also add Kindle Unlimited / paperback options here later.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Core of Echos • Built for fans • Hosted anywhere
+    </footer>
+  </div>
+
+  <script>
+    function openTab(name){
+      const tabs = ["home","about","preview","fan","buy"];
+      tabs.forEach(t=>{
+        const section = document.getElementById("tab-" + t);
+        if(section) section.style.display = (t===name) ? "block" : "none";
+      });
+      document.querySelectorAll(".tab").forEach(el=>{
+        el.classList.toggle("active", el.dataset.tab === name);
+      });
+      if(name==="fan") location.hash = "fan";
+      else location.hash = "";
+      window.scrollTo({top:0, behavior:"smooth"});
+    }
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
